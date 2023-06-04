@@ -22,17 +22,20 @@
     <section class="else">
       <div class="wrapper">
 
-        <h2>Section Title</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos autem perferendis recusandae saepe a ea dicta iusto inventore? Veritatis asperiores soluta quam placeat eligendi numquam. Ducimus maxime dolores nam vitae.</p>
+        <h2>play with the title</h2>
+        <p class="buttons">
+          <button @click="reverseMessage">click me to see what happens</button>
+          <button @click="msg += '!'">append "!"</button>
+          <button @click="msg"> remove "!"</button>
+        </p>
 
       </div> 
     </section>
     <section class="some">
       <div class="wrapper">
 
-        <h2>Section Title</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos autem perferendis recusandae saepe a ea dicta iusto inventore? Veritatis asperiores soluta quam placeat eligendi numquam. Ducimus maxime dolores nam vitae.</p>
-
+        <h2>Attribute bindings</h2>
+        <p :class="{ red: isRed }" @click="toggleRed">click and check the color of the text again</p>
       </div> 
     </section>
 
@@ -44,8 +47,22 @@
 <script>
 export default {
   name: 'Home-page',
-  props: {
-    msg: String
+  data() {
+    return {
+      msg: 'welcome',
+      isRed: true,
+    }
+  },
+  methods: {
+    reverseMessage() {
+      this.msg = this.msg.split('').reverse().join('')
+    },
+    toggleRed() {
+      this.isRed = !this.isRed
+    },
+    remove () {
+      this.msg = this.msg.remove('!')
+    },
   }
 }
 
@@ -61,6 +78,7 @@ body {
 }  
 
 .navbar {
+  
   display: flex;
   justify-content: space-evenly;
   text-transform: capitalize;
@@ -75,9 +93,9 @@ a {
 }
 
 a:hover {
-  transition-delay: all 1s ease-out;
+  transition-delay: all 3s ease-out;
   font-weight: bold;
-  text-decoration: underline;
+  text-shadow: #6A9113 1px 0 10px;
 }
 
 .head {
@@ -85,56 +103,90 @@ a:hover {
   color: #6A9113;
   text-transform: uppercase;
   text-align: center;
+  text-shadow: #54750c 1px 0 10px;
 }
 
 .wrapper {
   max-width: 50rem;
   margin-inline: auto;
   padding-inline: 1rem;
+  
 }
 
 section {
   padding-block: 5rem;
 } 
 
-.diagonal {
-  --skew-angle: 5deg;
-  --background:  #6A9113;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #141517, #6A9113);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #141517, #6A9113);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.diagonal { 
   position: relative;
   isolation: isolate;
+  color: #141516;
 }
 
 .diagonal::after {
   content: "";
-  background: (var(--background));
   z-index: -1;
   position: absolute;
   inset: 0;
-  transform: skewY(-5deg);
+  transform: skewY(5deg);
+  background: linear-gradient(-45deg, #141517, #6A9113);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(-45deg, #141517, #6A9113); */
+    /* Chrome 10-25, Safari 5.1-6 */
 }
 
-/*diagonal wont work. something wroing with the skewY.
+.else {
+    color: #6A9113;
+    text-transform: uppercase;
+    display: flex;
+    
+}
 
+h2 {
+  text-align: center;
+}
 
-
-/* .content {
+.buttons {
   display: flex;
-  height: 80vh;
-  padding-top: 2rem;
-  color: #6A9113;
-  background-color: #141517;
-  height: 3rem;
+  flex-direction: row;
 }
 
-.card1 {
-  background-color: #6A9113;
-  border: #141517;
-} */
+button {
+  margin: 2rem;
+  text-transform: uppercase;
+  background: linear-gradient(-45deg, #141517,#6A9113);
+  padding: 1rem;
+  border-radius: 5px;
+  transition: 500ms ease-out 500ms;
+}
 
+button:hover {
+  box-shadow: 2px 2px 2px 1px #6A9113;
+}
 
+.some { 
+  position: relative;
+  isolation: isolate;
+  color: #141516;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.some::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  transform: skewY(5deg);
+  background: linear-gradient(-45deg, #141517, #6A9113);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(-45deg, #141517, #6A9113); */
+    /* Chrome 10-25, Safari 5.1-6 */
+}
+
+.red {
+  color: red;
+}
 </style>
