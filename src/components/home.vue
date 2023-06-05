@@ -26,7 +26,7 @@
         <p class="buttons">
           <button @click="reverseMessage">click me to see what happens</button>
           <button @click="msg += '!'">append "!"</button>
-          <button @click="msg"> remove "!"</button>
+          <button @click="remove()"> remove "!"</button>
         </p>
 
       </div> 
@@ -49,8 +49,9 @@ export default {
   name: 'Home-page',
   data() {
     return {
-      msg: 'welcome',
       isRed: true,
+      msg: "welcome",
+      appended: ['',],
     }
   },
   methods: {
@@ -60,9 +61,9 @@ export default {
     toggleRed() {
       this.isRed = !this.isRed
     },
-    remove () {
-      this.msg = this.msg.remove('!')
-    },
+    remove() {
+      
+    }
   }
 }
 
@@ -87,15 +88,16 @@ body {
 }
 
 a {
+  padding: 1em;
+  border-radius: 10%;
   text-decoration: none;
   color: #6A9113;
   font-weight: 500;
+  transition: ease-out 1s;
 }
 
 a:hover {
-  transition-delay: all 3s ease-out;
-  font-weight: bold;
-  text-shadow: #6A9113 1px 0 10px;
+  box-shadow: #6A9113 5px 5px 10px;
 }
 
 .head {
@@ -158,11 +160,11 @@ button {
   background: linear-gradient(-45deg, #141517,#6A9113);
   padding: 1rem;
   border-radius: 5px;
-  transition: 500ms ease-out 500ms;
+  transition: ease-out 1s;
 }
 
 button:hover {
-  box-shadow: 2px 2px 2px 1px #6A9113;
+  box-shadow: 5px 5px 10px #6A9113;
 }
 
 .some { 
