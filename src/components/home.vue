@@ -4,7 +4,7 @@
         <a href="#">gallery</a>
         <a href="#">references</a>
         <a href="#">contact</a>
-        
+        <a class="nav-icon" href="#"><font-awesome-icon :icon="['fas', 'user-astronaut']" /></a>
       </nav>
       <header class="head">
         <div>
@@ -39,8 +39,12 @@
         <p :class="{ red: isRed }" @click="toggleRed">click and check the color of the text again</p>
       </div> 
     </section>
-
-        
+    <footer>
+      <div class="wrapper">
+        <h3 class="foothead" >socials</h3>
+        <a href="#"><font-awesome-icon :icon="['fas', 'user-astronaut']" /></a>
+      </div>
+    </footer>
     
  
 </template>
@@ -86,6 +90,10 @@ body {
   text-transform: capitalize;
   padding: 1em;
   margin: 0;
+}
+
+.nav-icon {
+  margin-left: 67rem;
 }
 
 a {
