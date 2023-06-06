@@ -1,7 +1,9 @@
 <template>
   
     <home msg="Welcome" />
- 
+    <div>
+    <a class="nav-icon" href="#"><font-awesome-icon :icon="['fas', 'user-astronaut']" /></a>
+    </div>
 </template>
 
 <script>

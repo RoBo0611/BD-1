@@ -1,9 +1,10 @@
 <template>
       <nav class="navbar">
-        <a class="navcon" href="#">home</a>
-        <a class="navcon" href="#">gallery</a>
-        <a class="navcon" href="#">references</a>
-        <a class="navcon" href="#">contact</a>
+        <a href="#">home</a>
+        <a href="#">gallery</a>
+        <a href="#">references</a>
+        <a href="#">contact</a>
+        
       </nav>
       <header class="head">
         <div>
@@ -81,7 +82,7 @@ body {
 .navbar {
   
   display: flex;
-  justify-content: space-evenly;
+  justify-content: left;
   text-transform: capitalize;
   padding: 1em;
   margin: 0;
@@ -106,6 +107,8 @@ a:hover {
   text-transform: uppercase;
   text-align: center;
   text-shadow: #54750c 1px 0 10px;
+  transform: skewY(5deg)
+  
 }
 
 .wrapper {
