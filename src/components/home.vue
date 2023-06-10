@@ -17,7 +17,7 @@
         </div>
       </header>
 
-    <section class="diagonal">
+    <section class="content">
       <div class="wrapper">
 
         <h2>Section Title</h2>
@@ -39,7 +39,7 @@
       </div> 
     </section>
 
-    <section class="some">
+    <section class="content">
       <div class="wrapper">
 
         <h2>Attribute bindings</h2>
@@ -48,12 +48,22 @@
     </section>
 
     <section class="else">
-      <div class="buttons">
+      <div class="wrapper">
 
-        <h2>lets get some info</h2>
-        <p></p>
+        <h2>Section Title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos autem perferendis recusandae saepe a ea dicta iusto inventore? Veritatis asperiores soluta quam placeat eligendi numquam. Ducimus maxime dolores nam vitae.</p>
+
       </div> 
     </section>
+
+    <section class="content">
+      <div class="wrapper">
+
+        <h2>section</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolorem accusamus repellendus placeat aperiam animi rem corporis, ducimus debitis beatae ad dolores laborum cum accusantium? Obcaecati blanditiis enim deserunt illo?</p>
+      </div> 
+    </section>
+
 
     <footer>
       <div class="foot">
@@ -163,13 +173,15 @@ section {
   padding-block: 5rem;
 } 
 
-.diagonal { 
+.content { 
   position: relative;
   isolation: isolate;
   color: #141516;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-.diagonal::after {
+.content::after {
   content: "";
   z-index: -1;
   position: absolute;
@@ -186,7 +198,7 @@ section {
     color: #6A9113;
     text-transform: uppercase;
     display: flex;
-    
+    text-align: center;
 }
 
 h2 {
@@ -211,31 +223,6 @@ button:hover {
   box-shadow: 5px 5px 10px #6A9113;
 }
 
-.some { 
-  position: relative;
-  isolation: isolate;
-  color: #141516;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.some::after {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  inset: 0;
-  transform: skewY(5deg);
-  background: linear-gradient(-45deg, #141517, #6A9113);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    /* fallback for old browsers */
-    /* background: -webkit-linear-gradient(-45deg, #141517, #6A9113); */
-    /* Chrome 10-25, Safari 5.1-6 */
-}
-
-.red {
-  color: red;
-}
-
 .foot {
   display: flex;
   margin-right: auto;
@@ -246,5 +233,9 @@ button:hover {
 .foothead {
   text-transform: uppercase;
   color: #6A9113;
+}
+
+.red {
+  color: red;
 }
 </style>

@@ -1,9 +1,7 @@
 <template>
   
-    <home msg="Welcome" />
-    <div>
-    
-    </div>
+    <home/>
+  
 </template>
 
 <script>
