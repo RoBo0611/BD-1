@@ -4,11 +4,16 @@
         <a href="#">gallery</a>
         <a href="#">references</a>
         <a href="#">contact</a>
-        <a class="nav-icon" href="#"><font-awesome-icon :icon="['fas', 'user-astronaut']" /></a>
+          <form class="push" ref="form" action="login">
+            <label for="login">personalise: </label>
+            <input v-model="text" class="person" name="login" id="login" placeholder=" Enter you name">
+          <button href="#"><font-awesome-icon :icon="['fas', 'user-astronaut']" /></button>
+          </form>
       </nav>
+
       <header class="head">
         <div>
-          <h1>{{ msg }}</h1>
+          <h1>{{ msg }} {{ text }}</h1>
         </div>
       </header>
 
@@ -20,18 +25,20 @@
 
       </div> 
     </section>
+
     <section class="else">
       <div class="wrapper">
 
         <h2>play with the title</h2>
         <p class="buttons">
           <button @click="reverseMessage">click me to see what happens</button>
-          <button @click="msg += '!'">append "!"</button>
-          <button @click="remove()"> remove "!"</button>
+          <button @click="text += '!'">append "!"</button>
+          <button @click="resetForm()"> reset title</button>
         </p>
 
       </div> 
     </section>
+
     <section class="some">
       <div class="wrapper">
 
@@ -39,10 +46,20 @@
         <p :class="{ red: isRed }" @click="toggleRed">click and check the color of the text again</p>
       </div> 
     </section>
+
+    <section class="else">
+      <div class="buttons">
+
+        <h2>lets get some info</h2>
+        <p></p>
+      </div> 
+    </section>
+
     <footer>
-      <div class="wrapper">
-        <h3 class="foothead" >socials</h3>
-        <a href="#"><font-awesome-icon :icon="['fas', 'user-astronaut']" /></a>
+      <div class="foot">
+        <a href="https://apple.com"><font-awesome-icon :icon="['fab', 'apple']" size="lg" /></a>
+        <a href="https://youtube.com"><font-awesome-icon :icon="['fab', 'youtube']" size="lg" /></a>
+        <a href="https://github.com"><font-awesome-icon :icon="['fab', 'github']" size="lg" /></a>
       </div>
     </footer>
     
@@ -56,7 +73,7 @@ export default {
     return {
       isRed: true,
       msg: "welcome",
-      appended: ['',],
+      text: '',
     }
   },
   methods: {
@@ -66,9 +83,12 @@ export default {
     toggleRed() {
       this.isRed = !this.isRed
     },
-    remove() {
-      
-    }
+    resetForm() {
+      this.$refs.form.reset()
+    },
+    resetMsg() {
+      this.msg.reset()
+    },
   }
 }
 
@@ -84,17 +104,31 @@ body {
 }  
 
 .navbar {
-  
   display: flex;
   justify-content: left;
   text-transform: capitalize;
   padding: 1em;
   margin: 0;
+  color: #6A9113;
 }
 
-.nav-icon {
-  margin-left: 67rem;
+form {
+  height: 5px;
 }
+
+.push {
+
+ margin-left: auto;
+ height: 5px;
+}
+
+.person {
+  color: #141517;
+  background-color: #6A9113;
+  border-radius: 10px;
+}
+
+
 
 a {
   padding: 1em;
@@ -123,7 +157,6 @@ a:hover {
   max-width: 50rem;
   margin-inline: auto;
   padding-inline: 1rem;
-  
 }
 
 section {
@@ -201,5 +234,17 @@ button:hover {
 
 .red {
   color: red;
+}
+
+.foot {
+  display: flex;
+  margin-right: auto;
+  padding: 1rem;
+  
+}
+
+.foothead {
+  text-transform: uppercase;
+  color: #6A9113;
 }
 </style>
