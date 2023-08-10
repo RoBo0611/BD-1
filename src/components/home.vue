@@ -1,79 +1,36 @@
 <template>
+    
       <nav class="navbar">
+        <div>
         <a href="#">home</a>
         <a href="#">gallery</a>
         <a href="#">references</a>
         <a href="#">contact</a>
+        </div>
+        <div class="form">
           <form class="push" ref="form" action="login">
             <label for="login">personalise: </label>
             <input v-model="text" class="person" name="login" id="login" placeholder=" Enter you name">
-          <button href="#"><font-awesome-icon :icon="['fas', 'user-astronaut']" /></button>
+            <button @click="addName"><font-awesome-icon :icon="['fas', 'user-astronaut']" /></button>
           </form>
+        </div>
       </nav>
 
-      <header class="head">
-        <div>
-          <h1>{{ msg }} {{ text }}</h1>
-        </div>
-      </header>
+      
+    <div class="button">
+      <button @click="greet" >button</button>
+    </div>
 
-    <section class="content">
-      <div class="wrapper">
-
-        <h2>Section Title</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos autem perferendis recusandae saepe a ea dicta iusto inventore? Veritatis asperiores soluta quam placeat eligendi numquam. Ducimus maxime dolores nam vitae.</p>
-
-      </div> 
-    </section>
-
-    <section class="else">
-      <div class="wrapper">
-
-        <h2>play with the title</h2>
-        <p class="buttons">
-          <button @click="reverseMessage">click me to see what happens</button>
-          <button @click="text += '!'">append "!"</button>
-          <button @click="resetForm()"> reset title</button>
-        </p>
-
-      </div> 
-    </section>
-
-    <section class="content">
-      <div class="wrapper">
-
-        <h2>Attribute bindings</h2>
-        <p :class="{ red: isRed }" @click="toggleRed">click and check the color of the text again</p>
-      </div> 
-    </section>
-
-    <section class="else">
-      <div class="wrapper">
-
-        <h2>Section Title</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos autem perferendis recusandae saepe a ea dicta iusto inventore? Veritatis asperiores soluta quam placeat eligendi numquam. Ducimus maxime dolores nam vitae.</p>
-
-      </div> 
-    </section>
-
-    <section class="content">
-      <div class="wrapper">
-
-        <h2>section</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolorem accusamus repellendus placeat aperiam animi rem corporis, ducimus debitis beatae ad dolores laborum cum accusantium? Obcaecati blanditiis enim deserunt illo?</p>
-      </div> 
-    </section>
-
-
-    <footer>
-      <div class="foot">
-        <a href="https://apple.com"><font-awesome-icon :icon="['fab', 'apple']" size="lg" /></a>
-        <a href="https://youtube.com"><font-awesome-icon :icon="['fab', 'youtube']" size="lg" /></a>
-        <a href="https://github.com"><font-awesome-icon :icon="['fab', 'github']" size="lg" /></a>
+    <Transition class="box">
+      <div class="box">
+        
       </div>
-    </footer>
+    </Transition>
+
+    <input v-model="names" type="text">
+    <button @click="addName">Click here</button>
     
- 
+
 </template>
 
 <script>
@@ -84,23 +41,23 @@ export default {
       isRed: true,
       msg: "welcome",
       text: '',
-    }
+      replaceMsg: 'Welcome',
+      names: [],
+    };
   },
   methods: {
-    reverseMessage() {
-      this.msg = this.msg.split('').reverse().join('')
-    },
-    toggleRed() {
-      this.isRed = !this.isRed
-    },
-    resetForm() {
-      this.$refs.form.reset()
-    },
-    resetMsg() {
-      this.msg.reset()
-    },
+   greet(e) {
+    console.log(e)
+    document.querySelector('.button').append(document.createElement('button'));
+   },
+  addName(e) {
+    this.names.push()
+    console.log(e)
   }
-}
+    
+   },
+  };
+
 
 
 </script>
@@ -110,32 +67,44 @@ export default {
 body {
   height: 100vh;
   margin: 0;
-  background-color: #141516;
-}  
+  background-color: var(--background-colour);
+}
 
 .navbar {
   display: flex;
-  justify-content: left;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   text-transform: capitalize;
   padding: 1em;
   margin: 0;
-  color: #6A9113;
+  color: var(--primary-colour);
 }
 
 form {
+  display: flex;
   height: 5px;
 }
 
-.push {
+.box {
+  height: 5rem;
+  width: 5rem;
+  background-color: aqua;
+  margin: 1rem;
+  border-radius: 5px;
+  border: solid black;
+}
 
- margin-left: auto;
- height: 5px;
+.v-enter-active,
+.v-leave-active {
+  transition: skewy(360deg) 3s ease;
 }
 
 .person {
   color: #141517;
-  background-color: #6A9113;
-  border-radius: 10px;
+  background-color: var(--secondary-colour);
+  border-radius: 5px;
+  height: 1rem;
 }
 
 
@@ -144,13 +113,13 @@ a {
   padding: 1em;
   border-radius: 10%;
   text-decoration: none;
-  color: #6A9113;
+  color: var(--primary-colour);
   font-weight: 500;
   transition: ease-out 1s;
 }
 
 a:hover {
-  box-shadow: #6A9113 5px 5px 10px;
+  box-shadow: var(--action-colour) 5px 5px 10px;
 }
 
 .head {
